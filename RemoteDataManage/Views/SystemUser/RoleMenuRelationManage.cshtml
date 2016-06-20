@@ -1,0 +1,82 @@
+﻿@{
+    ViewBag.Title = "角色菜单管理";
+    Layout = "~/Views/Shared/_LayoutBootstrap3.0.cshtml";
+}
+@model  RemoteDataManageModel.SystemUser.SystemRoleInfoModel
+@Html.HiddenFor(m => m.RoleID)
+<div class="col-sm-6"><div id="treeCheckBox" style="height:100%;overflow:auto;" /></div>
+
+<div class="col-sm-1" style="position:fixed; top:10px;right:10px;">
+    <a href="#" id="btnSave" style="position:fixed; top:10px;right:10px;" class="btn btn-primary btn-sm">保 存</a>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        LoadTree();
+
+        //保存
+        $("#btnSave").click(function () {
+            Save();
+        });
+    });
+
+    var tree;
+    function LoadTree() {
+        var roleId = $("#RoleID").val();
+        tree = new dhtmlXTreeObject("treeCheckBox", "100%", "100%", 0);
+        var url = "@Url.Content("~/SystemUser/GetRoleMenuRelation")?RoleID=" + roleId;
+
+        tree.setImagePath("@Url.Content("~/Content/Images/TreeMenu/")");
+
+        tree.enableCheckBoxes(1);
+        tree.enableThreeStateCheckboxes(true);
+
+        $.post(url, function (data) {
+            if (data != null) {
+                tree.loadJSONObject(stringToJson(data));
+                tree.openAllItems(0);
+            }
+            else {
+                alert("网络异常，请重试！");
+            }
+        });
+    }
+
+    //保存
+    function Save() {
+        var roleId = $("#RoleID").val();
+
+        var menuIDs = tree.getAllChecked();
+
+        if (menuIDs == "") {
+            bootbox.alert("至少要选择一个权限！");
+            return;
+        }
+
+        bootbox.confirm("确认要保存吗？", function (confirmed) {
+            if (confirmed) {
+                var param = {
+                    RoleID: roleId,
+                    MenuIDs: menuIDs
+                };
+                var Url = "@Url.Content("~/SystemUser/RoleMenuRelationSave")";
+
+                $.post(Url, param, function (data) {
+                    if (data != null) {
+                        bootbox.alert(data.Message);
+                        //bootbox.alert(data.Message, function () {
+                        //    if (data.IsSuccess) {
+                        //        CloseDialog();
+                        //    }
+                        //});
+                    }
+                    else {
+                        bootbox.alert("网络异常，请重试！");
+                    }
+                });
+            }
+        });
+    }
+
+</script>

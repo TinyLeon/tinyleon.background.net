@@ -1,0 +1,142 @@
+﻿@{
+    ViewBag.Title = "角色管理";
+    Layout = "~/Views/Shared/_LayoutBootstrap3.0.cshtml";
+}
+
+<div id="divTop" class="form-horizontal" style="padding-top:15px;">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">角色名称</label>
+        <div class="col-sm-5">
+            <input id="txtRoleName" type="text" class="form-control input-sm" />
+        </div>
+        <div class="col-sm-1">
+            <a href="#" id="btnSearch" class="btn btn-primary btn-sm">查 询</a>
+        </div>
+        <div class="col-sm-4">
+            <a href="#" id="btnAddRole" class="btn btn-default btn-sm">+ 新 增</a>
+        </div>
+    </div>
+</div>
+<div>
+    <table id="tbDataGrid"></table>
+</div>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        GetGrid();
+
+        //查询
+        $("#btnSearch").click(function () {
+            LoadData();
+        });
+
+        //新增角色
+        $("#btnAddRole").click(function () {
+            AddRole();
+        });
+    });
+
+    var grid = $("#tbDataGrid").datagrid();
+    function GetGrid() {
+        var mainHeight = $(document).height();
+        var topHeight = $("#divTop").height();
+        var height = mainHeight - (topHeight + 30);
+
+        $("#tbDataGrid").datagrid({
+            height: height,
+            singleSelect: true,
+            striped: true,
+            fitColumns: true,
+            idField: "RoleID",
+            columns: [[
+	            { field: "RoleName", title: "角色名称", width: 120 },
+				{ field: "Remark", title: "备注", width: 200 },
+				{ field: "IsValidStr", title: "是否有效", width: 80 },
+                {
+                    field: "Operate", title: "操作", width: 120, align: "center",
+                    formatter: function (value, rowData, rowIndex) {
+                        var htmlStr = "";
+                        htmlStr += "<input type=\"button\" class=\"btn btn-primary btn-xs\" value=\"修改\" onclick=\"ModifyRole(" + rowData.RoleID + ")\" />&nbsp;&nbsp;";
+                        htmlStr += "<input type=\"button\" class=\"btn btn-danger btn-xs\" value=\"删除\" onclick=\"DeleteRole(" + rowData.RoleID + ")\" />&nbsp;&nbsp;";
+                        htmlStr += "<input type=\"button\" class=\"btn btn-info btn-xs\" value=\"权限管理\" onclick=\"MenuManage('" + rowData.RoleName + "'," + rowData.RoleID + ")\" />&nbsp;&nbsp;";
+                        htmlStr += "<input type=\"button\" class=\"btn btn-info btn-xs\" value=\"查看用户\" onclick=\"ShowUserList('" + rowData.RoleName + "'," + rowData.RoleID + ")\" />";
+                        return htmlStr;
+                    }
+                },
+            ]],
+
+            pagination: true,
+            rownumbers: true
+        });
+
+        ShowPagerByGrid(grid);
+    }
+
+    //查询数据
+    function LoadData() {
+
+        var url = "@Url.Content("~/SystemUser/RoleInfoManageSearch")?RoleName=" + $("#txtRoleName").val();
+
+        $("#tbDataGrid").datagrid({
+            url: url
+        });
+        ShowPagerByGrid(grid);
+    }
+
+    //新增
+    function AddRole() {
+        var Url = "@Url.Content("~/SystemUser/RoleInfoEdit")";
+        ShowDialog("新增角色", Url, 500, 300);
+    }
+
+    //修改
+    function ModifyRole(roleID) {
+
+        var Url = "@Url.Content("~/SystemUser/RoleInfoEdit")?RoleID=" + roleID;
+        ShowDialog("修改角色", Url, 500, 300);
+    }
+
+    //删除
+    function DeleteRole(roleID) {
+
+        bootbox.confirm("确认要删除吗？", function (confirmed) {
+            if (confirmed) {
+                var param = {
+                    RoleID: roleID
+                };
+                var Url = "@Url.Content("~/SystemUser/DeleteRoleInfo")";
+                $.post(Url, param, function (data) {
+                    if (data != null) {
+                        if (data.IsSuccess) {
+                            LoadData();
+                        }
+                        bootbox.alert(data.Message);
+                    }
+                    else {
+                        bootbox.alert("网络异常，请重试！");
+                    }
+                });
+            }
+        });
+    }
+
+    //权限管理
+    function MenuManage(roleName, roleID) {
+
+        var Url = "@Url.Content("~/SystemUser/RoleMenuRelationManage")?RoleID=" + roleID;
+        ShowDialog("角色名称：" + roleName, Url, 500, 500);
+    }
+
+    //查看用户
+    function ShowUserList(roleName, roleID) {
+
+        var Url = "@Url.Content("~/SystemUser/UserRoleRelationUserList")?RoleID=" + roleID;
+        ShowDialog("角色名称：" + roleName, Url, 600, 400);
+    }
+</script>
+
+
+

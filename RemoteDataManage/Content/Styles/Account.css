@@ -1,0 +1,101 @@
+﻿
+td.txt {
+    text-align: right;
+    padding-left: 5px;
+    width: 90px;
+    font-family: Sans-Serif;
+    color: #000000;
+    font-size: small;
+}
+
+.label {
+    text-align: left;
+    padding-left: 5px;
+    width: 90px;
+    font-family: 华文细黑;
+    color: #C0C0C0;
+    font-weight: bold;
+    font-size: small;
+}
+
+.textBox {
+    width: 200px;
+    height: 15px;
+}
+
+.copyright {
+    color: #999999;
+    font-size: smaller;
+}
+
+td {
+    height: 35px;
+    padding: 4px;
+}
+
+.header {
+    height: 85px;
+    margin: 0 auto;
+}
+
+    .header .inner {
+        width: 1000px;
+        margin: 0 auto;
+    }
+
+    .header .tc_logo {
+        padding-top: 24px;
+        display: inline-block;
+    }
+
+    .header .top_menu {
+        top: 21px;
+        right: 100px;
+        text-align: right;
+        color: #cfd0d0;
+        display: inline-block;
+        margin-left: 145px;
+    }
+
+        .header .top_menu a {
+            padding-left: 20px;
+            color: #959595;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+            .header .top_menu a:hover {
+                color: #000000;
+            }
+
+.bottom-menu {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+
+    .bottom-menu label {
+        margin-top: 5px;
+        color: #555;
+        font-size: 14px;
+        font-family: Verdana;
+        font-weight: 500;
+        cursor: pointer;
+    }
+
+        .bottom-menu label:hover {
+            color: #808080;
+        }
+
+.loginIco {
+    width: 43px;
+    height: 44px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-bottom: -49px;
+}
+
+.loginInput {
+    margin-left: 40px;
+    width: 84%;
+}

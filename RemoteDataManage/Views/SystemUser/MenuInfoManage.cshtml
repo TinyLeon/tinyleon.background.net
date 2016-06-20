@@ -1,0 +1,137 @@
+﻿@{
+    ViewBag.Title = "用户管理";
+    Layout = "~/Views/Shared/_LayoutBootstrap3.0.cshtml";
+}
+
+<div id="divTop" class="form-horizontal" style="padding-top:15px;">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">菜单名称</label>
+        <div class="col-sm-5">
+            <input id="txtMenuName" type="text" class="form-control input-sm" />
+        </div>
+        <div class="col-sm-1">
+            <a href="#" id="btnSearch" class="btn btn-primary btn-sm">查 询</a>
+        </div>
+        <div class="col-sm-4">
+            <a href="#" id="btnAddMenu" class="btn btn-default btn-sm">+ 新 增</a>
+        </div>
+    </div>
+</div>
+<div>
+    <table id="tbDataGrid"></table>
+</div>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        GetGrid();
+
+        //查询
+        $("#btnSearch").click(function () {
+            LoadData();
+        });
+
+        //新增
+        $("#btnAddMenu").click(function () {
+            AddMenu();
+        });
+    });
+
+    var grid = $("#tbDataGrid").treegrid();
+    function GetGrid() {
+        var mainHeight = $(document).height();
+        var topHeight = $("#divTop").height();
+        var height = mainHeight - (topHeight + 30);
+
+        $("#tbDataGrid").treegrid({
+            height: height,
+            animate: true,
+            fitColumns: true,
+            idField: "id",
+            treeField:"MenuName",
+            columns: [[
+                { field: "MenuName", title: "菜单名称", width: 200 },
+                { field: "MenuURL", title: "菜单地址", width: 250 },
+                { field: "MenuImage", title: "图片", width: 80 },
+                { field: "MenuType", title: "类型", width: 40 },
+                { field: "Sorting", title: "排序", width: 40 },
+                { field: "Remark", title: "备注", width: 80 },
+                { field: "ModifyTimeFormat", title: "最后修改时间", width: 100 },
+                {
+                    field: "Operate", title: "操作", width: 150, align: "center",
+                    formatter: function (value, rowData, rowIndex) {
+                        var htmlStr = "";
+                        htmlStr += "<input type=\"button\" class=\"btn btn-primary btn-xs\" value=\"修改\" onclick=\"ModifyMenu(" + rowData.MenuID + ")\" />&nbsp;&nbsp;";
+                        htmlStr += "<input type=\"button\" class=\"btn btn-danger btn-xs\" value=\"删除\" onclick=\"DeleteMenu(" + rowData.MenuID + ")\" />&nbsp;&nbsp;";
+                        htmlStr += "<input type=\"button\" class=\"btn btn-default btn-xs\" value=\"+新增\" onclick=\"AddMenu(" + rowData.MenuID + ")\" />";
+                        return htmlStr;
+                    }
+                },
+            ]]
+            //rownumbers: true,           
+        });
+    }
+
+    //查询数据
+    function LoadData() {
+
+        var url = "@Url.Content("~/SystemUser/MenuInfoManageSearch")?MenuName=" + $("#txtMenuName").val();
+
+        $("#tbDataGrid").treegrid({
+            url: url
+        });
+    }
+
+    //新增
+    function AddMenu() {
+        var Url = "@Url.Content("~/SystemUser/MenuInfoEdit")";
+        ShowDialog("新增菜单", Url, 500, 500);
+    }
+
+    //新增子菜单
+    function AddMenu(menuId) {
+        var Url = "@Url.Content("~/SystemUser/MenuInfoEdit")?ParentMenuID=" + menuId;
+        ShowDialog("新增菜单", Url, 500, 450);
+    }
+
+    //修改
+    function ModifyMenu(menuId) {
+        var Url = "@Url.Content("~/SystemUser/MenuInfoEdit")?MenuID=" + menuId;
+        ShowDialog("修改菜单", Url, 500, 450);
+    }
+
+    //删除
+    function DeleteMenu(menuId) {
+
+        bootbox.confirm("确认要删除吗？", function (confirmed) {
+            if (confirmed) {
+                var param = {
+                    MenuID: menuId
+                };
+                $.post("@Url.Content("~/SystemUser/DeleteMenuInfo")", param, function (data) {
+                    if (data != null) {
+                        if (data.IsSuccess) {
+                            LoadData();
+                        }
+                        bootbox.alert(data.Message);
+                    }
+                    else {
+                        bootbox.alert("网络异常，请重试！");
+                    }
+                });
+            }
+        });
+    }
+
+    //查看权限
+    function ShowMenuRights(userId) {
+
+        var Url = "@Url.Content("~/SystemMenu/MenuRights")?MenuID=" + userId;
+        ShowDialog("查看权限", Url, 800, 450);
+    }
+</script>
+
+
+

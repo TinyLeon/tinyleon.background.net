@@ -1,0 +1,136 @@
+﻿@{
+    ViewBag.Title = "用户管理";
+    Layout = "~/Views/Shared/_LayoutBootstrap3.0.cshtml";
+}
+
+<div id="divTop" class="form-horizontal" style="padding-top:15px;">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">用户名称</label>
+        <div class="col-sm-5">
+            <input id="txtUserName" type="text" class="form-control input-sm" />
+        </div>
+        <div class="col-sm-1">
+            <a href="#" id="btnSearch" class="btn btn-primary btn-sm">查 询</a>
+        </div>
+        <div class="col-sm-4">
+            <a href="#" id="btnAddUser" class="btn btn-default btn-sm">+ 新 增</a>
+        </div>
+    </div>
+</div>
+
+<div>
+    <table id="tbDataGrid"></table>
+</div>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        GetGrid();
+
+        //查询
+        $("#btnSearch").click(function () {
+            LoadData();
+        });
+
+        //新增用户
+        $("#btnAddUser").click(function () {
+            AddUser();
+        });
+    });
+
+    var grid = $("#tbDataGrid").datagrid();
+    function GetGrid() {
+        var mainHeight = $(document).height();
+        var topHeight = $("#divTop").height();
+        var height = mainHeight - (topHeight + 30);
+
+        $("#tbDataGrid").datagrid({
+            height: height,
+            singleSelect: true,
+            striped: true,
+            fitColumns: true,
+            idField: "UserID",
+            columns: [[
+	            { field: "UserName", title: "用户名", width: 120 },
+                { field: "RealName", title: "真实姓名", width: 120 },
+                { field: "Email", title: "Email", width: 120 },
+                { field: "Mobile", title: "手机号", width: 100 },                
+                { field: "LastLoginTimeFormat", title: "上次登录时间", width: 120 },
+                {
+                    field: "Operate", title: "操作", width: 150, align: "center",
+                    formatter: function (value, rowData, rowIndex) {
+                        var htmlStr = "";
+                        htmlStr += "<input type=\"button\" class=\"btn btn-primary btn-xs\" value=\"修改\" onclick=\"ModifyUser(" + rowData.UserID + ")\" />&nbsp;&nbsp;";
+                        htmlStr += "<input type=\"button\" class=\"btn btn-danger btn-xs\" value=\"删除\" onclick=\"DeleteUser(" + rowData.UserID + ")\" />&nbsp;&nbsp;";
+                        htmlStr += "<input type=\"button\" class=\"btn btn-info btn-xs\" value=\"角色管理\" onclick=\"RoleManage('" + rowData.RealName + "'," + rowData.UserID + ")\" />&nbsp;&nbsp;";
+                        //htmlStr += "<input type=\"button\" class=\"btn btn-info btn-xs\" value=\"查看权限\" onclick=\"ShowMenu(" + rowData.UserID + ")\" />";
+                        return htmlStr;
+                    }
+                },
+            ]],
+
+            pagination: true,
+            rownumbers: true
+        });
+
+        ShowPagerByGrid(grid);
+    }
+
+    //查询数据
+    function LoadData() {
+
+        var url = "@Url.Content("~/SystemUser/UserInfoManageSearch")?UserName=" + $("#txtUserName").val();
+
+        $("#tbDataGrid").datagrid({
+            url: url
+        });
+        ShowPagerByGrid(grid);
+    }
+
+    //新增
+    function AddUser() {
+        var Url = "@Url.Content("~/SystemUser/UserInfoEdit")";
+        ShowDialog("新增用户", Url, 500, 350);
+    }
+
+    //修改
+    function ModifyUser(userId) {
+
+        var Url = "@Url.Content("~/SystemUser/UserInfoEdit")?UserID=" + userId;
+        ShowDialog("修改用户", Url, 500, 350);
+    }
+
+    //删除
+    function DeleteUser(userId) {
+        bootbox.confirm("确认要删除吗？", function (confirmed) {
+            if (confirmed) {
+                var param = {
+                    UserID: userId
+                };
+                $.post("@Url.Content("~/SystemUser/DeleteUserInfo")", param, function (data) {
+                    if (data != null) {
+                        if (data.IsSuccess) {
+                            LoadData();
+                        }
+                        bootbox.alert(data.Message);
+                    }
+                    else {
+                        bootbox.alert("网络异常，请重试！");
+                    }
+                });
+            }
+        });
+    }
+
+    //角色管理
+    function RoleManage(userName, userID) {
+
+        var Url = "@Url.Content("~/SystemUser/UserRoleRelationManage")?UserID=" + userID;
+        ShowDialog("用户姓名：" + userName, Url, 600, 500);
+    }
+</script>
+
+
+

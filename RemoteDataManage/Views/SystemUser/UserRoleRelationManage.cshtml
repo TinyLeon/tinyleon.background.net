@@ -1,0 +1,100 @@
+﻿@{
+    ViewBag.Title = "用户角色管理";
+    Layout = "~/Views/Shared/_LayoutBootstrap3.0.cshtml";
+}
+@model  RemoteDataManageModel.SystemUser.SystemUserInfoModel
+@Html.HiddenFor(m => m.UserID)
+
+<div id="divTop" style="padding-bottom:10px;">
+    <a href="#" id="btnSave" class="btn btn-primary btn-sm">保 存</a>
+</div>
+<div>
+    <table id="tbDataGrid"></table>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        GetGrid();
+
+        //保存
+        $("#btnSave").click(function () {
+            Save();
+        });
+    });
+
+    var grid = $("#tbDataGrid").datagrid();
+    function GetGrid() {
+        var mainHeight = $(document).height();
+        var topHeight = $("#divTop").height();
+        var height = mainHeight - (topHeight + 10);
+
+        var url = "@Url.Content("~/SystemUser/GetUserRoleRelation")?UserID=" + $("#UserID").val();
+
+        $("#tbDataGrid").datagrid({
+            height: height,
+            rownumbers: true,
+            singleSelect: true,
+            striped: true,
+            fitColumns: true,
+            selectOnCheck: false,
+            checkOnSelect: false,
+            url:url,
+            idField: "RoleID",
+            hiddenColumns: [[{
+                field: "IsChecked", title: "选择",
+            }]],
+            columns: [[
+                { field: "ch", checkbox: true},
+                { field: "RoleName", title: "角色名称", width: 120 },
+                { field: "Remark", title: "备注", width: 200 },
+                { field: "IsValidStr", title: "是否有效", width: 80 },
+            ]],
+            onLoadSuccess: function (data) {
+                $.each(data.rows, function (i, item) {
+                    if (item.IsChecked==1) {
+                        $("#tbDataGrid").datagrid("checkRow", i);
+                    }
+                }); 
+            }
+            
+        });
+    }
+
+
+    //保存
+    function Save() {
+        var userID = $("#UserID").val();
+        var rows = $("#tbDataGrid").datagrid("getChecked");
+        var roleIDs = "";
+        $.each(rows, function (i, item) {
+            roleIDs += item.RoleID + ",";
+        });
+        
+        if (roleIDs == "")
+        {
+            bootbox.alert("至少要选择一个角色！");
+            return;
+        }
+
+        bootbox.confirm("确认要保存吗？", function (confirmed) {
+            if (confirmed) {
+                var param = {
+                    UserID: userID,
+                    RoleIDs: roleIDs
+                };
+                var Url = "@Url.Content("~/SystemUser/UserRoleRelationSave")";
+                
+                $.post(Url, param, function (data) {                
+                    if (data != null) {
+                        bootbox.alert(data.Message);                        
+                    }
+                    else {
+                        bootbox.alert("网络异常，请重试！");
+                    }
+                });
+            }
+        });
+    }
+
+</script>

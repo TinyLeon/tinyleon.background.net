@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "登录系统";
+    Layout = "~/Views/Account/_Account.cshtml";
+}
+@model RemoteDataManageModel.Account.AccountModel
+@using (Html.BeginForm(new { @role = "form" }))
+{
+    <h3 style="text-align: center; font-family: 'Microsoft Yahei'; width: 240px; color: #555; margin-left: 3px;">欢迎登录</h3>
+    <hr />
+
+    <div class="form-group" style="margin-bottom: 5px;">
+        <b class="loginIco" style="background-image: url(@Url.Content("~/Content/Images/Main/account.png"));"></b>
+        @Html.TextBoxFor(m => m.Account, new { @placeholder = "用户名", @class = "form-control input-lg loginInput" })
+    </div>
+    <div class="form-group">
+        <b class="loginIco" style="background-image: url(@Url.Content("~/Content/Images/Main/pwd.png"));"></b>
+        @Html.PasswordFor(m => m.Name, new { @placeholder = "密码", @class = "form-control input-lg loginInput" })
+    </div>
+
+    <div class="form-group">
+        <div class="checkbox">
+            <label class="checkbox">
+                @Html.CheckBoxFor(m => m.IsRemember, new { @id = "chkIsRemember" })记住2个星期
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-6">
+            <button type="submit" id="btnLogin" class="btn btn-primary btn-lg" style="padding: 10px 30px;">登 录</button>
+        </div>
+        <div class="col-xs-6">
+            <a href="#" id="btnApply" class="btn btn-info btn-lg" style="padding: 10px 30px;">申 请</a>
+        </div>
+    </div>
+
+    <div class="bottom-menu">
+        <a href="#">
+            <label style="margin-top: 20px">生产环境</label>
+        </a><br />
+        <a href="#">
+            <label>UED环境</label>
+        </a><br />
+        <a href="#">
+            <label>测试环境</label>
+        </a>
+    </div>
+
+    if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+    {
+        @Html.Raw("<script>alert('" + ViewBag.ErrorMessage + "')</script>")
+    }
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("form").submit(function (e) {
+        });
+
+        $("#btnLogin").click(function () {
+
+            if ($("#Account").val() == "") {
+                alert("请输入用户名！");
+                return;
+            }
+            if ($("#Email").val() == "") {
+                alert("请输入密码！");
+                return;
+            }
+
+            Login();
+        });
+
+        $("#btnApply").click(function () {
+            ZENG.msgbox.show("请联系 Leon，申请权限", 4, 4000, null, null);
+        });
+
+        $("body").css("padding-top", ($(window).height() - 700 - 90) / 2 + "px");
+
+        $(window).resize(function () {
+            $("body").css("padding-top", ($(window).height() - 700 - 90) / 2 + "px");
+        });
+    });
+
+    function Login() {
+        $("form").submit();
+    }
+</script>

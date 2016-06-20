@@ -1,0 +1,58 @@
+﻿body {
+}
+.edit td
+{
+    border-style: none solid solid none;
+    border-width: thin;
+    border-color: #C4D8ED;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    padding: 2px 5px 2px 5px;
+    color: #444;
+}
+
+.search td
+{
+    font-size: 12px;
+    color: #444;
+}
+
+.title
+{
+    background:#D4D4D4;
+     color:#666;
+     font-weight:bold;
+     height:24px;
+     line-height:24px;
+}
+.searchLeft
+{
+    text-align: right;
+    padding-left: 5px;
+    width: 100px;
+    font-weight: bolder;
+}
+.left
+{
+    text-align: right;
+    padding-left: 5px;
+    width: 100px;
+    font-weight: bolder;
+    background-color: #EEF7FD;
+}
+.right
+{
+    text-align:left; 
+    padding-left:5px;    
+}
+
+input,textarea
+{
+    font-family: 微软雅黑;
+    font-size: 12px;
+}
+select
+{
+    width:150px;
+}

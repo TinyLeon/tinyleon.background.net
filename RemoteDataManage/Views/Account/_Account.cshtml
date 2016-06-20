@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+
+    <script src="@Url.Content("~/Scripts/Library/jQuery/jquery-1.10.2.min.js")" type="text/javascript"></script>
+
+
+    <script src="@Url.Content("~/Scripts/Library/jQueryEasyUI/jquery.easyui.min.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/Scripts/Library/jQueryEasyUI/themes/default/easyui.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Scripts/Library/jQueryEasyUI/themes/icon.css")" rel="stylesheet" type="text/css" />
+    <!-- My97DataPicker -->
+    <script src="@Url.Content("~/Scripts/Library/My97DataPicker/WdatePicker.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/Scripts/Library/My97DataPicker/skin/WdatePicker.css")" rel="stylesheet" type="text/css" />
+    <!-- dhtmlx公共 -->
+    <script src="@Url.Content("~/Scripts/Library/dhtmlx/dhtmlxcommon.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Library/dhtmlx/dhtmlxcontainer.js")" type="text/javascript"></script>
+    <!-- dhtmlxWindows -->
+    <script src="@Url.Content("~/Scripts/Library/dhtmlx/dhtmlxWindows/dhtmlxwindows.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/Scripts/Library/dhtmlx/dhtmlxWindows/dhtmlxwindows.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Scripts/Library/dhtmlx/dhtmlxWindows/skins/dhtmlxwindows_dhx_skyblue.css")" rel="stylesheet" type="text/css" />
+
+    <!--Tip-->
+    <link href="@Url.Content("~/Scripts/Library/Tip/msgbox.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/Library/Tip/msgbox.js")" type="text/javascript"></script>
+
+    <link href="@Url.Content("~/Scripts/Library/bootstrap-3.0.0/css/bootstrap.min.css")" rel="Stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/Library/bootstrap-3.0.0/js/bootstrap.min.js")" type="text/javascript"></script>
+
+
+    <link href="@Url.Content("~/Content/Styles/Account.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <img id="backgroundImage" src="@Url.Content("~/Content/Images/Main/bg_reversal.jpg")" style="position:absolute;z-index:-1;width:100%;height:620px;margin-top:85px;margin-bottom:auto" />
+
+    <div class="header">
+        <div class="inner">
+            <div class="tc_logo">
+                <img src="@Url.Content("~/Content/Images/Main/logo_big.jpg")" width="180px" height="50px" style="margin-bottom: 12px" />
+                <span style="font-family: 'Microsoft Yahei'; color: #555; margin-left: 3px; padding-top: 3px; font-size: 18px">
+                    Leon's后台系统
+                </span>
+            </div>
+            <nav class="top_menu">
+                <a href="#">临时系统1</a>
+                <a>临时系统2</a>
+                <a href="#">临时系统3</a>
+                <a>临时系统4</a>
+                <a href="#">临时系统5</a>
+            </nav>
+        </div>
+    </div>
+
+    <div style="height: 640px">
+        <table style="width: 100%;">
+            <tr>
+                <td>
+                    <table style="margin: 4% 58%;">
+                        <tr>
+                            <td valign="top" style="padding: 18px 35px; background-color: rgba(182,210,243,0.8); width: 380px;">
+                                @RenderBody()
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div style="bottom: 20px;">
+        @*<div style="width:230px;margin:0 auto">*@
+        <span style="padding-left: 44%;">Copyright © 2015-2016 版权所有 Leon</span>
+        @*</div>*@
+    </div>
+</body>
+</html>

@@ -1,0 +1,161 @@
+﻿@{
+    ViewBag.Title = "NewAdmin";
+    Layout = "~/Views/Shared/_LayoutLeon.cshtml";
+}
+@using RemoteDataManage.Helpers;
+<form id="form1" runat="server">
+    <div id="navbar" class="navbar navbar-default">
+        <div id="navbar-container" class="navbar-container">
+            <div class="navbar-header pull-left">
+                <a class="navbar-brand" href="/hotel/global/Main/NewAdmin">
+                    <small>
+                        <i class="icon-leaf"></i>
+                        <img style="width: 120px; height: 30px; margin-top: 4px" src="~/Content/Images/Main/logo_big.jpg" />
+                        <label style="font-size: 20px; margin-top: 12px">Leon后台系统</label>
+                    </small>
+                </a>
+                <!-- /.brand -->
+            </div>
+            <!--菜单-->
+            <div id="parentMenu" role="menu" class="navbar-header nav-right-new" style="padding-left: 80px">
+                <ul class="nav ace-nav">
+                    <li class="no-border margin-1 parent-menu" data-menuid="@ViewBag.ResourceMenuId">
+                        <img src="~/Content/Images/ParentMenuIco/source.png" class="parent-menu-img" />
+                        <label class="parent-menu-text">资源中心</label>
+                    </li>
+                    <li class="no-border margin-1 parent-menu">
+                        <img src="~/Content/Images/ParentMenuIco/order.png" class="parent-menu-img" />
+                        <label class="parent-menu-text">订单中心</label>
+                    </li>
+                    <li class="no-border margin-1 parent-menu">
+                        <img src="~/Content/Images/ParentMenuIco/finance.png" class="parent-menu-img" />
+                        <label class="parent-menu-text">财务中心</label>
+                    </li>
+                    <li class="no-border margin-1 parent-menu" data-menuid="@ViewBag.SystemMenuId">
+                        <img src="~/Content/Images/ParentMenuIco/system.png" class="parent-menu-img" />
+                        <label class="parent-menu-text">系统管理</label>
+                    </li>
+                    <li class="no-border margin-1 parent-menu">
+                        <img src="~/Content/Images/ParentMenuIco/data.png" class="parent-menu-img" />
+                        <label class="parent-menu-text">数据统计</label>
+                    </li>
+                </ul>
+            </div>
+            <!--菜单end-->
+            <!-- /.navbar-header -->
+            <div role="navigation" class="navbar-header pull-right nav-right-new">
+                <ul class="nav ace-nav">
+                    <li class="light-blue no-border margin-1">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                            <span class="user-info">
+                                <i class="iconN-user iconN-white"></i>
+                                欢迎您 @ViewBag.Name <small>今天是 @DateTime.Now.ToString("yyyy年MM月dd日")</small>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="no-border margin-1 header-profile green">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="iconN-custom iconN-cSet" onclick="javascript:location='http://172.16.2.20:1000/Help';"></i>
+                        </a>
+                    </li>
+                    <li class="no-border margin-1 header-profile purple" id="logout">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="iconN-custom iconN-cOff"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.ace-nav -->
+            </div>
+            <!-- /.navbar-header -->
+        </div>
+        <!-- /.container -->
+    </div>
+    <div id="main-container" class="main-container" style="padding-bottom: 5px">
+        <script type="text/javascript">
+            try { ace.settings.check('main-container', 'fixed') } catch (e) { }
+        </script>
+        <div class="main-container-inner">
+            <a href="#" id="menu-toggler" class="menu-toggler"><span class="menu-text"></span></a>
+            <div id="sidebar" class="sidebar">
+                <script type="text/javascript">
+                    try { ace.settings.check('sidebar', 'fixed') } catch (e) { }
+                </script>
+
+                <!--menu introduction-->
+                <div id="menuIntroduction" class="menu-introduction">
+                    <img src="~/Content/Images/ParentMenuIco/source.png" /><label>资源中心</label>
+                </div>
+
+                <!-- #sidebar-shortcuts -->
+                <ul class="nav nav-list"></ul>
+                @*<div id="sidebar-collapse" class="sidebar-collapse"><i data-icon2="iconN-double-right" data-icon1="iconN-double-left" class="iconN-double-left iconN-custom"></i></div>
+                    <script type="text/javascript">
+                        try { ace.settings.check('sidebar', 'collapsed') } catch (e) { }
+                    </script>*@
+            </div>
+            <div class="main-content">
+                <div data-options="region:'center',title:''" id="divMain">
+                    <div id="tabMain" class="easyui-tabs">
+                        <div title="我的主页" style="padding: 20px;">
+                            <div style="height: 510px;">
+                                <h1>
+                                    欢迎使用
+                                    <button type="button" id="modalWithFade" data-toggle="modal" data-target="#full-width">modalWithFade</button>
+                                    <button type="button" id="modalWithNoFade" data-toggle="modal" data-target="#full-width">modalWithNoFade</button>
+                                    <button type="button" id="dhxDialog">dhxDialog</button>
+                                    <button type="button" id="easyUIDialogModal">easyUIDialogModal</button>
+                                    <button type="button" id="easyUIDialogNoModal">easyUIDialogNoModal</button>
+                                </h1>
+
+                                here is the test field
+
+                                <div class="input-group col-xs-6 WdatePicker">
+                                    @Html.TextBox("startDate", "", new { @class = "form-control input-sm" })
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="line"></div>
+            </div>
+
+        </div>
+    </div>
+
+    @*<a class="btn-scroll-up btn btn-sm btn-inverse" id="btn-scroll-up" href="#"><i class="icon-double-angle-up icon-only bigger-110"></i></a>*@
+    @*<a class="btn-scroll-up btn btn-sm btn-inverse" title="返回顶部" id="A5" href="#"><i class="iconN-top iconN-custom"></i></a>*@
+    @*<div id="copyRight" style="text-align: center; margin-top: -5px">Copyright © 2005-2018 版权所有 同程网络科技股份有限公司 | 苏ICP备09033604号-21 | 管理员入口 | Powered by 酒店项目研发部</div>*@
+</form>
+<div style="display: none;">
+    <input id="btnAddTab" type="button" value="*" />
+    <input id="tabName" type="hidden" value="" />
+    <input id="tabUrl" type="hidden" value="" />
+</div>
+<script src="@Url.Content("~/Scripts/Modules/admin/adminModule.js?version=" + UIHelper.JSVersion)" type="text/javascript"></script>
+
+<!--bootstrap Dialog-->
+<div id="full-width" class="modal container fade" tabindex="-1" style="display: none;">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Full Width</h4>
+    </div>
+    <div class="modal-body">
+
+    </div>
+    @*<div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>*@
+</div>
+
+<div id="static" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false" style="display: none;">
+    <div class="modal-body">
+        <p>Would you like to continue with some arbitrary task?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" data-dismiss="modal" class="btn btn-default">取消</button>
+        <button type="button" data-dismiss="modal" class="btn btn-primary">确定</button>
+    </div>
+</div>

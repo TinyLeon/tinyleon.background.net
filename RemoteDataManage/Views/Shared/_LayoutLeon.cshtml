@@ -1,0 +1,89 @@
+﻿@using RemoteDataManage.Helpers
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+
+
+    <!--jquery-->
+    <script src="@Url.Content("~/Scripts/Library/jQuery/jquery-1.10.2.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Library/jQuery/jquery.blockUI-2.70.js")" type="text/javascript"></script>
+
+    <!--Knockout-->
+    <script src="@Url.Content("~/Scripts/Library/Knockout/knockout-2.2.0.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Library/Knockout/knockout.mapping.js")" type="text/javascript"></script>
+
+    <!--Tip-->
+    <link href="@Url.Content("~/Scripts/Library/Tip/msgbox.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/Library/Tip/msgbox.js")" type="text/javascript"></script>
+
+    <!-- jQueryEasy -->
+    <script src="@Url.Content("~/Scripts/Library/jQueryEasyUI_1.4.1/jquery.easyui.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Library/jQueryEasyUI_1.4.1/datagrid-detailview.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Library/jQueryEasyUI_1.4.1/datagrid-groupview.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/Scripts/Library/jQueryEasyUI_1.4.1/themes/metro/easyui.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Scripts/Library/jQueryEasyUI_1.4.1/themes/icon.css")" rel="stylesheet" type="text/css" />
+
+    <!-- 附件上传 -->
+    <script src="@Url.Content("~/Scripts/Library/uploadify-v3.1/jquery.uploadify-3.1.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/Scripts/Library/uploadify-v3.1/uploadify.css")" rel="stylesheet" type="text/css" />
+
+    <!-- My97DataPicker -->
+    <script src="@Url.Content("~/Scripts/Library/My97DataPicker/WdatePicker.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/Scripts/Library/My97DataPicker/skin/WdatePicker.css")" rel="stylesheet" type="text/css" />
+
+    <!-- dhtmlx-4.1公共 -->
+    <script src="@Url.Content("~/Scripts/Library/dhtmlx-4.1/dhtmlx.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/Scripts/Library/dhtmlx-4.1/dhtmlx.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Scripts/Library/dhtmlx-4.1/skins/terrace/dhtmlx.css")" rel="stylesheet" type="text/css" />
+
+    <link href="@Url.Content("~/Content/Styles/Edit.css")" rel="stylesheet" type="text/css" />
+
+    <!--bootstrap css-->
+    <link href="@Url.Content("~/Scripts/Library/bootstrap-3.0.0/css/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Scripts/Library/bootstrap-3.0.0/css/bootstrap-datetimepicker.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Scripts/Library/bootstrap-3.0.0/css/scoll.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Scripts/Library/bootstrap-3.0.0/css/bootstrap-modal.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Scripts/Library/bootstrap-3.0.0/css/bootstrap-modal-expand.css")" rel="stylesheet" type="text/css" />
+
+    <!-- bootstrap js -->
+    <script src="@Url.Content("~/Scripts/Library/bootstrap-3.0.0/js/bootbox.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Library/bootstrap-3.0.0/js/bootstrap.min.js")" type="text/javascript"></script>
+
+    <!--bootstrap datetimepicker-->
+    <link href="@Url.Content("~/Scripts/Library/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/Library/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js")" type="text/javascript"></script>
+
+    <!-- 封装类库 -->
+    <script src="@Url.Content("~/Scripts/Common/dhxDialog.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Common/easyPager.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Common/common.js")" type="text/javascript"></script>
+
+    <!--ace style-->
+    <link href="@Url.Content("~/Scripts/Library/ace/jquery-ui-1.10.3.custom.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Scripts/Library/ace/jquery-ui-1.10.3.full.min.css")" rel="stylesheet" type="text/css" />
+
+    <link href="@Url.Content("~/Scripts/Library/ace/ace.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Scripts/Library/ace/ace-skins.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Scripts/Library/ace/styleOpt.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Scripts/Library/ace/site.css")" rel="stylesheet" type="text/css" />
+
+</head>
+<body class="skin-3">
+    <input type="hidden" id="hidCatalog" value="@Session["Catalog"]" />
+
+    @RenderBody()
+
+    <!--ace&bootdialog-->
+    <script src="@Url.Content("~/Scripts/Library/ace/js/ace-elements.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Library/ace/js/ace.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Library/ace/js/jquery.popup.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Library/ace/js/highcharts.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Library/ace/js/exporting.js")" type="text/javascript"></script>
+
+    @*<script src="@Url.Content("~/Scripts/Library/ace/js/bootstrap-modalmanager.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/Library/ace/js/bootstrap-modal.js")" type="text/javascript"></script>*@
+
+</body>
+</html>

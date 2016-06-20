@@ -1,0 +1,69 @@
+﻿@using RemoteDataManage.Helpers
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+
+    <script src="@Url.Content("~/Scripts/Library/jQuery/jquery-1.10.2.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Library/jQuery/jquery.blockUI-2.70.js")" type="text/javascript"></script>
+
+    <!-- bootstrap -->
+    <script src="@Url.Content("~/Scripts/Library/bootstrap-3.0.0/js/bootbox.min.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/Scripts/Library/bootstrap-3.0.0/css/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/Library/bootstrap-3.0.0/js/bootstrap.min.js")" type="text/javascript"></script>
+
+    <!-- jQueryEasy -->
+    <script src="@Url.Content("~/Scripts/Library/jQueryEasyUI_1.4.1/jquery.easyui.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Library/jQueryEasyUI_1.4.1/datagrid-detailview.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Library/jQueryEasyUI_1.4.1/datagrid-groupview.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/Scripts/Library/jQueryEasyUI_1.4.1/themes/metro/easyui.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Scripts/Library/jQueryEasyUI_1.4.1/themes/icon.css")" rel="stylesheet" type="text/css" />
+
+    <!-- 附件上传 -->
+    <script src="@Url.Content("~/Scripts/Library/uploadify-v3.1/jquery.uploadify-3.1.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/Scripts/Library/uploadify-v3.1/uploadify.css")" rel="stylesheet" type="text/css" />
+
+    <!-- My97DataPicker -->
+    <script src="@Url.Content("~/Scripts/Library/My97DataPicker/WdatePicker.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/Scripts/Library/My97DataPicker/skin/WdatePicker.css")" rel="stylesheet" type="text/css" />
+
+    <!-- dhtmlx-4.1公共 -->
+    <script src="@Url.Content("~/Scripts/Library/dhtmlx-4.1/dhtmlx.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/Scripts/Library/dhtmlx-4.1/dhtmlx.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Scripts/Library/dhtmlx-4.1/skins/terrace/dhtmlx.css")" rel="stylesheet" type="text/css" />
+
+    <!-- 封装类库 -->
+    <script src="@Url.Content("~/Scripts/Common/dhxDialog.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Common/easyPager.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Common/common.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Common/ComboGrid.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Common/Province_City_County.js")" type="text/javascript"></script>
+    
+    <link href="@Url.Content("~/Content/Styles/Edit.css")" rel="stylesheet" type="text/css" />
+
+    @*重新表格的行高*@
+    <style>
+        .datagrid-cell {
+            line-height: 35px;
+        }
+        .control-label
+        {
+            text-align:right;
+        }
+    </style>
+    <script type="text/javascript">
+        bootbox.setLocale("zh_CN");
+    </script>
+
+</head>
+<body>
+    <input type="hidden" id="hidCatalog" value="@Session["Catalog"]" />
+    <div class="container-fluid">
+        <div class="row" style="width:98%;margin-left:6px;margin-right:6px;">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>
+

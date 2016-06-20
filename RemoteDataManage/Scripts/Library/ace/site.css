@@ -1,0 +1,203 @@
+﻿
+/*
+ * Author:朱进雄 bradley
+ * CreateTime:2014-7-24 16:43
+ * Description:自定义样式
+ */
+
+/*查询区域Item*/
+.search_item {
+   width:50%;
+   padding:5px;
+}
+
+/*datagrid选中行样式*/
+.datagrid-node-selected {
+    background:#428bca;
+    color:white;
+}
+
+/*操作按钮*/
+.operate-button {
+    cursor:pointer;
+}
+
+.datagrid-table {
+    text-align:center;
+}
+.datagrid-row td a{
+    padding:0px 5px;
+}
+.datagrid-row td span.disable{
+    padding:0px 5px;
+    color:#A0A0A0;
+}
+.glyphicon {
+    padding-right:5px;
+}
+
+/*面包屑符号*/
+.breadcrumb > li + li:before{
+/*padding: 0 5px;
+color: #ccc;*/
+content: ">";
+}
+
+/*调整下拉框按钮样式*/
+.dropdown-btn {
+border: 1px solid #FFF; 
+}
+
+/*datagrid-图片*/
+.datagrid-img {
+    width:80px;
+    height:80px;
+    margin:8px;
+    border: 1px solid rgb(243, 238, 238);
+    border-radius: 7px;
+    box-shadow: 3px 3px 3px rgb(213, 203, 203);
+}
+
+
+.self-btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  position: relative;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: -1px;
+}
+
+.self-btn:hover {
+
+}
+
+.site-input-row {
+    margin-top:5px;
+    margin-bottom: 5px;
+}
+
+.required-mark {
+    color:red;
+}
+
+/*提示框*/
+.note {
+    margin:5px 2px;
+    display:none;
+    color:red;
+    text-align:right;
+}
+
+.tips {
+    color:red;
+    margin-left:5px;
+}
+
+.ico_docu {
+    /*background-size:cover;*/
+}
+
+/*删除图片按钮*/
+.btn-close-ph {
+    position:absolute;
+    top:-4px;
+    right:-4px;
+    background:url('/Images/SSY/iconfont-chucuo.png');
+    background-size:cover;
+    width:26px;
+    height:26px;
+    display:block;
+}
+
+/*图片查看*/
+#mask_layer{
+	width:100%;
+	height:100%;
+	background:gray;
+	opacity:0.5;
+	position:absolute;
+	top:0;
+	left:0;
+	display:none;
+    z-index:99;
+}
+#original_picture{
+	position:absolute;
+	top:50%;
+	left:50%;
+	display:none;
+    z-index:100;
+}
+
+#original_picture img{
+	border:6px solid rgb(214, 209, 209);
+	border-radius:18px;
+    max-width:800px;
+    max-height:500px;
+}
+
+#thumbnails{
+	width:100px;
+	height:100px;
+}
+
+#close_btn{
+	position:absolute;
+	top:5px;
+	right:10px;
+	background:url('/Images/SSY/close.gif');
+	background-position:0 0;
+	width:21px;
+	height:21px;
+}
+
+#close_btn:hover{
+	background:url('/Images/SSY/close.gif');
+	background-position:0 22px;
+}
+/*图片查看*/
+
+
+/*日期控件*/
+.date-control {
+    cursor:pointer;
+    
+}
+
+/*招商公告*/
+.announcement .a{
+    padding-left:40px;
+}
+
+.announcement dd{
+    margin-bottom:10px;
+}
+
+.announcement .o{
+    /*float:right;*/
+    padding-left:40px;
+}
+
+.announcement a{
+    cursor:pointer;
+}
+
+/*调整boostrap 子容器不随父容器变大 产生空白*/
+
+

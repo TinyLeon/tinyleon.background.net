@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteDataManage", "RemoteDataManage\RemoteDataManage.csproj", "{F1B3DF43-7F8A-42FF-B0CF-BF0A0E9840FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteDataManageBusiness", "RemoteDataManageBusiness\RemoteDataManageBusiness.csproj", "{250C1B46-D954-4517-8DDB-E68E277950B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteDataManageDataAccess", "RemoteDataManageDataAccess\RemoteDataManageDataAccess.csproj", "{D72271B2-49EC-448C-9054-87F222891A15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteDataManageModel", "RemoteDataManageModel\RemoteDataManageModel.csproj", "{96EB8AFC-D451-4D65-AEA3-47E668B89D47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteDataManageCommon", "RemoteDataManageCommon\RemoteDataManageCommon.csproj", "{05DDF66E-FB41-4D3E-9676-928F163D9135}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteDataCSFollow", "RemoteDataCSFollow\RemoteDataCSFollow.csproj", "{DAD17236-A291-4929-A87A-A8BF3577C816}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1B3DF43-7F8A-42FF-B0CF-BF0A0E9840FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1B3DF43-7F8A-42FF-B0CF-BF0A0E9840FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1B3DF43-7F8A-42FF-B0CF-BF0A0E9840FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1B3DF43-7F8A-42FF-B0CF-BF0A0E9840FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{250C1B46-D954-4517-8DDB-E68E277950B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{250C1B46-D954-4517-8DDB-E68E277950B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{250C1B46-D954-4517-8DDB-E68E277950B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{250C1B46-D954-4517-8DDB-E68E277950B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D72271B2-49EC-448C-9054-87F222891A15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D72271B2-49EC-448C-9054-87F222891A15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D72271B2-49EC-448C-9054-87F222891A15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D72271B2-49EC-448C-9054-87F222891A15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96EB8AFC-D451-4D65-AEA3-47E668B89D47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96EB8AFC-D451-4D65-AEA3-47E668B89D47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96EB8AFC-D451-4D65-AEA3-47E668B89D47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96EB8AFC-D451-4D65-AEA3-47E668B89D47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05DDF66E-FB41-4D3E-9676-928F163D9135}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05DDF66E-FB41-4D3E-9676-928F163D9135}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05DDF66E-FB41-4D3E-9676-928F163D9135}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05DDF66E-FB41-4D3E-9676-928F163D9135}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAD17236-A291-4929-A87A-A8BF3577C816}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAD17236-A291-4929-A87A-A8BF3577C816}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAD17236-A291-4929-A87A-A8BF3577C816}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAD17236-A291-4929-A87A-A8BF3577C816}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

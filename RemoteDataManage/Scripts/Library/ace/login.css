@@ -1,0 +1,69 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/*================== 登录页面 ======================*/
+body{background-color: #f7f7f7;}
+.login_wrapper{width:420px; margin:0 auto}
+.login_wrapper .logoImg{ width:200px; margin:100px auto; display:block; margin-bottom:20px}
+.login_img img{display:block;border:1px solid #ddd;padding:1px;}
+.login_content{background-color: #eee; border: 6px solid #ABBAC3;}
+.login_content table{  width: 380px; height: 300px; margin:0 auto}
+.login_content table tr td label{ font-size: 16px; color: #333;}
+.login_content table tr td input{ width: 240px; height: 38px; padding:0 2px}
+.login_content table tr td.passwd{ text-align: right; padding-right: 60px;}
+.login_content table tr td.passwd a{ font-size: 16px; color: #b20022;}
+.login_content table tr td.btn_login{ text-align: center;}
+/*.login_content table tr td.btn_login input[type="submit"]{ width: 160px; height: 35px; line-height: 35px; text-align: center; background-color: #b20022; color: #fff; font-size: 18px; cursor: pointer;}
+.login_content table tr td.btn_login input[type="submit"]:hover{ background-color: #5d5d5d;}*/
+
+/*================== 找回密码页面 ======================*/
+.pwd_box{ width:970px; height:606px;position:absolute; left:50%; top:50%; margin-left:-485px; margin-top:-303px;}
+.dfl_logo img{ width:207px; height:59px;}
+.pwd_content_box{width:937px; height:539px; background:#fff; margin-top:10px;}
+.pwd_content_box .pwd_js{ height:70px;}
+.pwd_content_box .pwd_content{ width:681px; height:435px;margin:0 auto;}
+.pwd_content_box .pwd_content .pwd_head_menue{ height:143px; position:relative;}
+.pwd_content_box .pwd_content .pwd_head_menue ul li{ width:227px; float:left; height:143px;text-align:center; cursor:pointer;}
+.pwd_content_box .pwd_content .pwd_head_menue ul li.forget_pwd{ background:#3eaef8;}
+.pwd_content_box .pwd_content .pwd_head_menue ul li.view_mailbox{ background:#e2e2e2;}
+.pwd_content_box .pwd_content .pwd_head_menue ul li.reset_pwd{ background:#ebebeb;}
+.pwd_content_box .pwd_content .pwd_head_menue ul li img{ margin:36px auto 0 auto; display:block; margin-bottom:15px; }
+.pwd_content_box .pwd_content .pwd_head_menue ul li a{ color:#fff; font-size:18px;  }
+.pwd_content_box .pwd_content .pwd_head_menue ul li a.pwd_normal{color:#5d5d5d;font-size:18px;}
+.pwd_content_box .pwd_content .pwd_head_menue .pwd_head_menue_arrow{ width:75px; height:75px; position:absolute;left:188px; top:0px;}
+.pwd_content_box .pwd_content .pwd_head_menue .pwd_head_menue_arrow_normal{ width:75px; height:75px; position:absolute;left:415px;  top:0px;}
+.pwd_content_box .pwd_content .pwd_body{ width:681px; height:264px; background:#fff; margin-top:30px;}
+.pwd_content_box .pwd_content .pwd_body p{ color:#606060; margin-bottom:28px;}
+.pwd_content_box .pwd_content .pwd_body .ipt{ width:681px; height:31px; line-height:31px; margin-bottom:15px;}
+.pwd_content_box .pwd_content .pwd_body .ipt2{ width:681px; height:31px; line-height:31px; margin-bottom:15px;}
+.pwd_content_box .pwd_content .pwd_body .ipt h1{ color:#606060; float:left; font-weight:normal; width:75px; text-align:right;}
+.pwd_content_box .pwd_content .pwd_body .ipt .input_bg{ width:200px; height:31px; background:#ebebeb; float:left; margin-left:9px;}
+.pwd_content_box .pwd_content .pwd_body .ipt h2{ color:#606060; font-weight:normal; float:left; margin-left:12px;}
+.pwd_content_box .pwd_content .pwd_body .ipt span{ color:#d02c44; padding-right:4px; font-weight:bold;}
+.pwd_content_box .pwd_content .pwd_body .ipt .btn_radio_normal{ background:url(../images/radio_normal.png) no-repeat; width:16px; height:16px; display:block; margin-top:6px; cursor:pointer}
+.pwd_content_box .pwd_content .pwd_body .ipt .btn_radio_hover{ background:url(../images/radio_hover.png) no-repeat; width:16px; height:16px; display:block; margin-top:6px;cursor:pointer}
+.pwd_content_box .pwd_content .pwd_body .ipt h3{ margin:0 32px 0 8px; float:left;color:#606060; font-weight:normal;}
+.pwd_content_box .pwd_content .pwd_body .btn{ width:163px; height:43px; line-height:43px; color:#fff; font-size:18px; text-align:center; display:block; margin:35px auto 0 auto; background:#3394d9; cursor:pointer }
+.pwd_content_box .pwd_content .pwd_body .btn:hover{ background:#3eaef8;cursor:pointer }
+.submit{width:163px; height:43px; line-height:43px; color:#fff; font-size:18px; text-align:center; display:block; margin:35px auto 0 auto; background:#3394d9;}
+.submit:hover{background:#3eaef8;}
+
+/*================== 查看邮箱页面 ======================*/
+.pwd_content_box .pwd_content .pwd_body .mail{ width:681px; margin-top:62px; text-align:center; margin-bottom:70px; color:#606060}
+.pwd_content_box .pwd_content .pwd_body .mail a{ color:#cc082d; font-weight:bold}
+
+/*================== 重新设置密码页面 ======================*/
+.pwd_content_box .pwd_content .reset_body{ height:264px; margin:30px auto 0 auto; width:450px;}
+.pwd_content_box .pwd_content .reset_body .labed{ width:105px; text-align:right;color:#606060; float:left; text-align:right;}
+.pwd_content_box .pwd_content .reset_body a{ color:#cc082d; font-weight:bold}
+
+
+/*================== 20140403 Optimize ======================*/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, fieldset, lengend, button, input, textarea,th, td, select{margin: 0; padding: 0; border:0}
+img{ border:none}
+a,a:visited { color: #428BCA; text-decoration:underline}
+a:hover{ text-decoration:none}
+body, button, input, select, textarea{font: 12px/1 'Microsoft Yahei', Helvetica, Arial, "\5b8b\4f53", sans-serif}
+.loginBtn{ background-color: #076dc7; border: 5px solid #076dc7;color: #fff; cursor: pointer; display: inline-block;text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); vertical-align: middle;transition: all 0.15s ease 0s; line-height:28px; font-size:14px; width:160px !important}
+.loginBtn:hover{ background-color: #015198}
+.forgetPwd{ margin-top:5px; margin-left:20px}

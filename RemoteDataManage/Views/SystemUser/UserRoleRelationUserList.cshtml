@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "用户角色管理";
+    Layout = "~/Views/Shared/_LayoutBootstrap3.0.cshtml";
+}
+
+<input type="hidden" id="RoleID" value="@ViewBag.RoleID" />
+
+<div>
+    <table id="tbDataGrid"></table>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        GetGrid();
+    });
+
+    var grid = $("#tbDataGrid").datagrid();
+    function GetGrid() {
+        var mainHeight = $(document).height();
+        var height = mainHeight
+
+        var url = "@Url.Content("~/SystemUser/GetUserRoleRelationUserList")?RoleID=" + $("#RoleID").val();;
+
+        $("#tbDataGrid").datagrid({
+            height: height,
+            singleSelect: true,
+            striped: true,
+            fitColumns: true,
+            url:url,
+            idField: "UserID",
+            columns: [[
+	            { field: "UserName", title: "用户名", width: 120 },
+                { field: "RealName", title: "真实姓名", width: 120 },
+                { field: "Email", title: "Email", width: 120 },
+                { field: "Mobile", title: "手机号", width: 100 },
+                //{ field: "IsActivatedStr", title: "是否已激活", width: 80 },
+                { field: "LastLoginTimeFormat", title: "上次登录时间", width: 120 },
+            ]],
+            rownumbers: true
+        });
+    }
+
+
+</script>
