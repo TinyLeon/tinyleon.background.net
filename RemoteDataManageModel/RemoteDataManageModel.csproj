@@ -41,9 +41,6 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="TCSmartFramework.Utility">
-      <HintPath>..\RemoteDataManageCommon\Dll\TCSmartFramework.Utility.dll</HintPath>
-    </Reference>
     <Reference Include="TonyCommon">
       <HintPath>..\RemoteDataManageCommon\Dll\TonyCommon.dll</HintPath>
     </Reference>

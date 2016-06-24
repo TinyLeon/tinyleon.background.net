@@ -23,24 +23,24 @@ namespace RemoteDataManage.Controllers.Account
             string errorMessage = string.Empty;
 
             ReturnInfoModel returnInfo = new ReturnInfoModel();
-            
+
             if (true)
             {
                 return RedirectToAction("Admin", "Main");
             }
-            else
-            {
-                errorMessage = returnInfo.Message;
+            //else
+            //{
+            //    errorMessage = returnInfo.Message;
 
-                if (string.IsNullOrEmpty(errorMessage))
-                {
-                    errorMessage = "发生未知错误!";
-                }
-            }
+            //    if (string.IsNullOrEmpty(errorMessage))
+            //    {
+            //        errorMessage = "发生未知错误!";
+            //    }
+            //}
 
-            ViewBag.ErrorMessage = errorMessage;
+            //ViewBag.ErrorMessage = errorMessage;
 
-            return View();
+            //return View();
         }
 
         public ActionResult Logout()

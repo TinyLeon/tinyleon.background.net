@@ -48,9 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Dll\ExcelImportLib.dll" />
-    <Content Include="Dll\TCSmartFramework.CommonInterface.dll" />
-    <Content Include="Dll\TCSmartFramework.DataAccess.dll" />
-    <Content Include="Dll\TCSmartFramework.Utility.dll" />
     <Content Include="Dll\TonyCommon.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
